@@ -172,6 +172,7 @@
             });
 
             function loadCategory() {
+                $('#category_list').html('');
                 $.ajax({
                     url: '{{ url("category/list") }}',
                     success: function (data) {
