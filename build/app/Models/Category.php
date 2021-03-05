@@ -18,4 +18,5 @@ class Category extends Model
     {
         return $this->hasManyThrough('App\Models\Book', 'App\Models\BooksLibrary', 'category_id', 'id', 'id', 'book_id');
     }
+
 }

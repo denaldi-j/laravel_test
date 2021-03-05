@@ -17,6 +17,8 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('book/detail/{id}', [IndexController::class, 'show_book']);
+Route::get('category/detail/{id}', [IndexController::class, 'show_category']);
 
 Auth::routes();
 
@@ -31,7 +33,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'category'], function() {
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'book'], function() {
-    Route::get('/index', function () {
+    Route::get('index', function () {
         return view('book');
     });
     Route::get('/', [BookController::class, 'index']);

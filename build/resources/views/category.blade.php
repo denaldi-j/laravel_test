@@ -54,7 +54,11 @@
             var table = $('#category_table').DataTable({
                 ajax: '{{ url("category") }}',
                 columns: [
-                    { data: 'name' },
+                    { data: 'name',
+                        render: function (data, type, row) {
+                            return '<h5 class="text-default"><a href="{{ url("category/detail") }}/'+row.id+'">'+data+'</a></h5>';
+                        }
+                    },
                     { data: 'id', class: 'text-center',
                         render: function (data) {
                             return '<a href="{{ url("category/update") }}/'+data+'" id="category_edit" class="mr-2 text-warning" title="edit"><i class="fa fa-edit mr-1"></i>edit</a>'+

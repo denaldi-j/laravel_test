@@ -87,7 +87,7 @@
                     },
                     { data: 'title',
                         render: function (data, type, row) {
-                            return '<h5>'+data+'</h5>'+
+                            return '<h5><a href="{{ url("book/detail") }}/'+row.id+'">'+data+'</a></h5>'+
                                 '<p>'+row.description+'</p>';
                         }
                     },

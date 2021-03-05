@@ -42,7 +42,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
                BOOKS LIST
@@ -62,6 +62,9 @@
                             </li>
                         @endif
                     @else
+                        <li class="nav-item mr-2">
+                            <a class="nav-link btn btn-sm btn-light border-info" href="{{ url('/home') }}">Admin Page</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
@@ -91,18 +94,21 @@
                 @foreach($data as $item)
                     <div class="card col-lg-4" style="position: static;">
                         <div class="card-body" style=" padding:10px">
-                            <h5 class="card-title">{{ $item->name }}</h5>
+                            <h4 class="card-title text-center" style="padding: 5px; background-color: #8fd19e";>{{ $item->name }}</h4>
                             <div class="row ml-auto mr-auto" style="padding: 0px">
-
                                 @foreach($item->book as $book)
-                                    <div class="card card-inside">
-                                        <img class="card-img-top" src="{{ asset('cover_images/'.$book->cover) }}" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h6 class="card-title">{{ $book->title }}</h6>
+                                        <div class="card card-inside">
+                                            <a href="{{ url("book/detail/".$book->id) }}" class="text-primary">
+                                            <img class="card-img-top" src="{{ asset('cover_images/'.$book->cover) }}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h6 class="card-title">{{ $book->title }}</h6>
+                                            </div>
+                                            </a>
                                         </div>
-                                    </div>
                                 @endforeach
                             </div>
+
+                            <a class="btn btn-sm btn-danger" href="{{ url("category/detail/".$item->id) }}">view more..</a>
                         </div>
                     </div>
                 @endforeach

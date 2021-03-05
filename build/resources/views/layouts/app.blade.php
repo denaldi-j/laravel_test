@@ -47,7 +47,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link active" href="{{ url('home') }}">Category</a>
+                        <a class="nav-item nav-link" href="{{ url('/') }}">Home</a>
+                        <a class="nav-item nav-link" href="{{ url('home') }}">Category</a>
                         <a class="nav-item nav-link" href="{{ url("book/index") }}">Books</a>
                     </ul>
 
